@@ -11,8 +11,10 @@ import Templates from './components/Templates'
 import CreateDesign from './components/CreateDesign'
 import Main from "./pages/Main";
 import { token_decode } from './utils/index'
+import axios from "axios";
 
 const userInfo = token_decode(localStorage.getItem('canva_token'))
+
 
 const router = createBrowserRouter([
   {

@@ -33,16 +33,18 @@ if (process.env.NODE_ENV === 'production') {
 const dbConnect = async () => {
     try {
         if (process.env.NODE_ENV === 'local') {
-            await mongoose.connect(process.env.LOCAL_DB_URI)
-            console.log('Local database is connect....')
+            await mongoose.connect(process.env.LOCAL_DB_URI);
+            console.log('Local database is connected....');
         } else {
-            await mongoose.connect(process.env.MONGODB_URI)
-            console.log('production database is connect....')
+            await mongoose.connect(process.env.MONGODB_URI);
+            console.log('Production database is connected....');
         }
     } catch (error) {
-        console.log('database connection failed')
+        console.error('Database connection failed:', error.message);
+        console.error('Stack trace:', error.stack);
     }
-}
+};
+
 
 dbConnect()
 
